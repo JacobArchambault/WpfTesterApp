@@ -13,5 +13,21 @@ namespace WpfTesterApp
     /// </summary>
     public partial class App : Application
     {
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            Current.Properties["GodMode"] = false;
+            foreach (string arg in e.Args)
+            {
+                if (arg.Equals("/godmode", StringComparison.OrdinalIgnoreCase))
+                {
+                    Current.Properties["GodMode"] = true;
+                    break;
+                }
+            }
+        }
+        private void App_OnExit(object sender, StartupEventArgs e)
+        {
+
+        }
     }
 }
