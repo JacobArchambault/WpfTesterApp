@@ -28,6 +28,9 @@ namespace WpfTesterApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked the button!");
+            if ((bool) Application.Current.Properties["GodMode"]){
+                MessageBox.Show("Cheater!");
+            }
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
