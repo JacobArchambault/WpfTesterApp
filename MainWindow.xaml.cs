@@ -32,7 +32,7 @@ namespace WpfTesterApp
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            Title = e.GetPosition(this).ToString();
+            Title = $"Current mouse position: {e.GetPosition(this)}";
         }
     }
 }
