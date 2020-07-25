@@ -23,6 +23,13 @@ namespace WpfTesterApp
         public MainWindow()
         {
             InitializeComponent();
+            Closed += MainWindow_OnClosed;
+            Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            MessageBox.Show("Goodbye!");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,6 +43,16 @@ namespace WpfTesterApp
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             Title = $"Current mouse position: {e.GetPosition(this)}";
+        }
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // See if the user really wants to shud down this window.
+            string msg = "Do you really want to close without saving?";
+            MessageBoxResult result = MessageBox.Show(msg, "My App", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

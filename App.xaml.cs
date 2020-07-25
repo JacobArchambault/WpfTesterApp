@@ -25,9 +25,5 @@ namespace WpfTesterApp
                 }
             }
         }
-        private void App_OnExit(object sender, StartupEventArgs e)
-        {
-
-        }
     }
 }
